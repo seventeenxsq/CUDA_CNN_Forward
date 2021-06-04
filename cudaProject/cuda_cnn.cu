@@ -13,55 +13,55 @@ __global__ void conv_step1(float *step1_out, float * feature_in,
 							float * con_core_in, int featuremap_size, int coresize)
 {
 	// 先不管共享内存
+	printf("GPU\n");
+	//// 这是取的数量的总个数
+	//int layer_nums = gridDim.y;  // block的第二维为卷积核也是feature的层数
+	//
+	//// 定位到线程所在的block
+	//int kernel_now = blockIdx.x;  //   目前是第几个kernel
+	//int layer_now =  blockIdx.y;  //   目前在第几层中
 
-	// 这是取的数量的总个数
-	int layer_nums = gridDim.y;  // block的第二维为卷积核也是feature的层数
-	
-	// 定位到线程所在的block
-	int kernel_now = blockIdx.x;  //   目前是第几个kernel
-	int layer_now =  blockIdx.y;  //   目前在第几层中
+	//// 定位到block中的线程,也就是kernel函数真实地执行者
+	//int row_now = threadIdx.x;  // 表示所在层的行
+	//int col_now =  threadIdx.y;  // 表示所在层的列
 
-	// 定位到block中的线程,也就是kernel函数真实地执行者
-	int row_now = threadIdx.x;  // 表示所在层的行
-	int col_now =  threadIdx.y;  // 表示所在层的列
+	////每个线程他具体做了什么呢？
+	////他把对应到的feature数据和对应的卷积核相乘
+	//// 是一个3x3的小循环
+	////我们现在的要做的是定位到featrue中的对应的数据
+	//
+	////输出的out数组的定位
+	//int out_position = (kernel_now*layer_nums + layer_now)*(featuremap_size*featuremap_size) + row_now * featuremap_size + col_now; //输出结果的定位
+	//
+	//// feature中的数据定位，定位到层数即可，最后每次再取
+	//int feature_layer_start= layer_now * (featuremap_size*featuremap_size);
+
+	////  kernel定位到个数和层数
+	//int kernel_pos_start = (kernel_now*layer_nums+layer_now)*coresize*coresize;
+
+	////////////////////////////////////////////////////////////////
+	//////         开始二层循环计算一个卷积的值                 ////
+	////////////////////////////////////////////////////////////////
+	//float temp=0.0f;
+	//
+	////因为一个卷积运算是从最左上的边角开始的  我们要定位到他的卷积开始的行和列
+	//int starti = row_now - coresize / 2;
+	//int startj = col_now - coresize / 2;
 
 
-	//每个线程他具体做了什么呢？
-	//他把对应到的feature数据和对应的卷积核相乘
-	// 是一个3x3的小循环
-
-	//我们现在的要做的是定位到featrue中的对应的数据
-	
-	//输出的out数组的定位
-	int out_position = (kernel_now*layer_nums + layer_now)*(featuremap_size*featuremap_size) + row_now * featuremap_size + col_now; //输出结果的定位
-	
-	// feature中的数据定位，定位到层数即可，最后每次再取
-	int feature_layer_start= layer_now * (featuremap_size*featuremap_size);
-
-	//  kernel定位到个数和层数
-	int kernel_pos_start = (kernel_now*layer_nums+layer_now)*coresize*coresize;
-
-	//////////////////////////////////////////////////////////////
-	////         开始二层循环计算一个卷积的值                 ////
-	//////////////////////////////////////////////////////////////
-	float temp=0.0f;
-	
-	//因为一个卷积运算是从最左上的边角开始的  我们要定位到他的卷积开始的行和列
-	int starti = row_now - coresize / 2;
-	int startj = col_now - coresize / 2;
-
-	for (int i = starti; i < starti + coresize; i++){
-		for (int j = startj; j < startj + coresize; j++){
-			if (i >= 0 && j >= 0 && i < featuremap_size && j < featuremap_size)
-			{
-				temp =temp+con_core_in[kernel_pos_start+(i - starti)*coresize+(j - startj)] * feature_in[feature_layer_start+(i * featuremap_size)+j];
-				//printf(" con_core_in[%d %d] = %f feature_in[%d %d] =%f\n",i,j, con_core_in[kernel_pos_start + (i - starti)*coresize + (j - startj)],i,j, feature_in[feature_layer_start + (i * featuremap_size) + j]);
-			}
-		}
-
-	}
-	printf("\n temp= %f \n", temp);
-	step1_out[out_position] = temp;
+	//for (int i = starti; i < starti + coresize; i++){
+	//	for (int j = startj; j < startj + coresize; j++){
+	//		if (i >= 0 && j >= 0 && i < featuremap_size && j < featuremap_size)
+	//		{
+	//			temp =temp+con_core_in[kernel_pos_start+(i - starti)*coresize+(j - startj)] * feature_in[feature_layer_start+(i * featuremap_size)+j];
+	//			//printf("GPU\n");
+	//			//printf(" con_core_in[%d %d] = %f feature_in[%d %d] =%f\n", i, j, con_core_in[kernel_pos_start + (i - starti)*coresize + (j - startj)], i - starti, j - startj, feature_in[feature_layer_start + (i * featuremap_size) + j]);
+	//		}
+	//		
+	//	}
+	//}
+	////printf("\n temp= %f \n", temp);
+	//step1_out[out_position] = temp;
 }
 
 //第二步是做累加，与卷积核无关了 只是纵向的累加
@@ -213,4 +213,9 @@ __global__ void FC_SharedMem(float *featuremap_in, float *weight, float *feature
 	}
 	//最后再将球的数据传入out的数组中
 	feature_out[out_pos] = result;
+}
+
+
+__global__ void conv_step1_test() {
+	printf("hello GPU\n");
 }

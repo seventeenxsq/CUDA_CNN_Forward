@@ -1,5 +1,10 @@
 #include "cuda_cnn.cuh"
 
+#include <opencv2/opencv.hpp>
+#include <opencv2\imgproc\types_c.h>
+using namespace cv;
+using namespace std;
+
 //我们先来做一个二维的卷积运算
 /*
   待卷积矩阵是一个 16*16的矩阵
@@ -14,31 +19,6 @@
   卷积核的宽度
   矩阵的场和宽
  */
-
-void Conv2(float** filter, float** arr, float** res, int filter_size, int arr_size) {
-	//装载本次计算好的变量
-
-	for (int row = 0; row < arr_size; row++) {
-		for (int col = 0; col < arr_size; col++) {
-			int temp = 0;
-
-
-			int starti = row - filter_size / 2;
-			int startj = col - filter_size / 2;
-			for (int i = starti; i < starti + filter_size; i++)
-			{
-				for (int j = startj; j < startj + filter_size; j++)
-				{
-					if (i >= 0 && j >= 0 && i < arr_size && j < arr_size)
-					{
-						temp += filter[i][j] * filter[i - starti][j - startj];
-					}
-				}
-			}
-			res[row][col] = temp;
-		}
-	}
-}
 
 __global__ void conv(float *in, float *out, float *mask, int maskwidth, int w, int h) {
 	// 先要确定索引， 知道我这个线程是在干什么
@@ -64,15 +44,12 @@ __global__ void conv(float *in, float *out, float *mask, int maskwidth, int w, i
 }
 
 __global__ void multiple2D(float * arr_A, float * arr_B, float * out) {
-
+	
 	int raw = threadIdx.x;
 	int col = threadIdx.y;
 
 	out[raw * 2 + col] = arr_A[raw * 2 + col] * arr_B[raw * 2 + col];
-
-
 }
-
 
 void test_conv_step1(){
 	//确定我要开采的feature大小
@@ -117,7 +94,6 @@ void test_conv_step1(){
 
 	//-----------------------------数据赋值完成------------------------------
 	//////////////////////////////////////////////////////////////////////////
-
 
 	////输出featrue结果 调试用
 	printf(" \n featrue初始化 \n ");
@@ -453,7 +429,6 @@ void test_FC_SharedMem() {
 	}
 	printf("\n     weight test \n");
 
-	
 	//定义GPU的数组指针 define GPU value pointer 
 	float *feature_in_gpu, *weight_in_gpu, *out_gpu;
 	//他们都是要传到GPU globalMEm中的数据
@@ -487,11 +462,134 @@ void test_FC_SharedMem() {
 	cudaFree(feature_in_gpu);
 	cudaFree(weight_in_gpu);
 	cudaFree(out_gpu);
+}
+
+//完整的测试案例工程
+void FullCnnProject() {
+
+	////opencv读取图片 512*512
+	//Mat raw_img = imread("Lena.jpg");
+	//Mat grey_img,small_img;
+	//printf("图片大小为 %d行  %d列  %d通道 \n ", raw_img.rows, raw_img.cols, raw_img.channels());
+	//cout << "像素类型为："<< raw_img.type() << endl;
+	////imshow("读取图像展示", img);
+	////waitKey(1500);
+	////转换成灰度图
+	//cvtColor(raw_img, grey_img, CV_BGR2GRAY);
+	//printf("图片大小为 %d行  %d列  %d通道 \n ", grey_img.rows, grey_img.cols, grey_img.channels());
+
+	//resize(grey_img, small_img, Size(64, 64), INTER_AREA);
+	//printf("图片缩放后的大小为 %d行  %d列  %d通道 \n ", small_img.rows, small_img.cols, small_img.channels());
+
+	////将图像像素数值转换成浮点型
+	////我们自己定义float型数组，让后将数据转换过来就行
+	//float * img_input=(float *)malloc(64*64*sizeof(float));
+	//
+	//for (int i = 0; i < small_img.rows; i++)
+	//{
+	//	for (int j = 0; j < small_img.cols; j++)
+	//	{
+	//		img_input[i*small_img.cols + j]=(float)small_img.data[i*small_img.cols + j];
+	//	}
+	//	cout << endl;
+	//}
+	////imshow("缩小图像展示", small_img);
+	////waitKey(1500);
+
+	//for (int i = 0; i < small_img.rows; i++)
+	//{
+	//	for (int j = 0; j < small_img.cols; j++)
+	//	{
+	//		printf("%f\t", img_input[i*small_img.cols + j]) ;
+	//	}
+	//	cout << "\n"<<"\n";
+	//}
+	//cout << "\n" << "  图像数组输出 " << "\n";
+
+	////////////////////////////////////////////////////////////////////////
+	/////////        接下来就是传入整个卷积网络的运算了！！！      /////////
+	////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////  一 卷积 step1 ////////////////////////////////////
+	////首先 原图像数组已经有了
+	//int input_3d_size =1*64*64;
+	//int kernel_3d_size = 10 * 1 * 3*3;
+	////step1_out大小
+	//int step1_out_size = 10 * 1 * 64*64;
+
+	//float *kernel_in_cpu = (float*)malloc(kernel_3d_size * sizeof(float));
+	//float *feature_out_cpu = (float*)malloc(step1_out_size * sizeof(float));
+	////  10个 kernel 赋值
+	//for(int num=0;num<10;num++){
+	//	for (int i = 0; i < Kernel_size; i++) {
+	//		for (int j = 0; j < Kernel_size; j++) {
+	//			kernel_in_cpu[num * Kernel_size * Kernel_size + i* Kernel_size+j] = num+1;
+	//		}
+	//	}
+	//}
+
+	//for (int num = 0; num < 10; num++) {
+	//	for (int i = 0; i < Kernel_size; i++) {
+	//		for (int j = 0; j < Kernel_size; j++) {
+	//			printf("%f\t",kernel_in_cpu[num * Kernel_size * Kernel_size + i * Kernel_size + j]);
+	//		}
+	//	}
+	//	printf("\n 一层的kernel值 \n");
+	//}
+
+	//float *feature_in_gpu, *kernel_in_gpu, *out_gpu;
+	////cudaMalloc((void**)&feature_in_gpu, sizeof(float)*input_3d_size);
+	////cudaMalloc((void**)&kernel_in_gpu, sizeof(float)*kernel_3d_size);
+	////cudaMalloc((void**)&out_gpu, sizeof(float)*step1_out_size);
+
+	//cudaMalloc((void**)&feature_in_gpu, sizeof(float)*10);
+	//cudaMalloc((void**)&kernel_in_gpu, sizeof(float)*10);
+	//cudaMalloc((void**)&out_gpu, sizeof(float)*20);
+
+	//printf("\n cudaMalloc 完成\n");
+
+	//// 将CPU中的数据传到 GPU内存中
+	//cudaMemcpy(feature_in_gpu, img_input, sizeof(float)*input_3d_size, cudaMemcpyHostToDevice);
+	//cudaMemcpy(kernel_in_gpu, kernel_in_cpu, sizeof(float)*kernel_3d_size, cudaMemcpyHostToDevice);
+
+	//printf("\n cudaMemcpy 完成\n");
+
+	//设计传入的线程  启用线程
+	dim3 dimGrid(10,3);
+	dim3 dimBlock(32,32);// 线程的形状
+
+	//调用CUDA API时我们应该传入的是device的内存指针！！！
+	//否则直接就调用不了kernel
+	conv_step1_test<<<dimGrid, dimBlock >>>();
+	printf("\n函数调用完成\n");
+	//将GPU计算好的内存返回给CPU
+	//copy back
+	/*cudaMemcpy(feature_out_cpu, out_gpu, sizeof(float)*step1_out_size, cudaMemcpyDeviceToHost);*/
+
+	////输出featrue_out_cpu 结果 调试用
+	//printf("---------------------------------------\n");
+	//printf("-------输出featrue_out_cpu结果-----------\n");
+	//printf("---------------------------------------\n");
+	//for(int kernel_num=0; kernel_num <10; kernel_num++){
+	//	for (int i = 0; i < 64; i++) {
+	//		for (int j = 0; j < 64; j++) {
+	//		printf("%f\t", feature_out_cpu[(kernel_num) * 64 * 64 + i * 64 + j]);
+	//		}
+	//	}
+	//	printf(" \n             一层的数值        \n");
+	//	}
+	//printf("\n  --------- conv step 1 全部完成 ------ \n");
+
+	//cudaFree(feature_in_gpu);
+	//cudaFree(kernel_in_gpu);
+	//cudaFree(out_gpu);
+
 
 }
 
 int main(void){
 
-	test_FC_SharedMem();
+	//test_conv_step1();
 
+	FullCnnProject();
 }

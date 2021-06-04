@@ -249,3 +249,164 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.1
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xcall_once.h
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xerrc.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\share.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv_modules.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cvdef.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/hal/interface.h
+d:\some_other_software\opencv\build\include\opencv2\core\cv_cpu_dispatch.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\intrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\setjmp.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\immintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\wmmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\nmmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\smmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\tmmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\pmmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\emmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xmmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\mmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\zmmintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\ammintrin.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\array
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\algorithm
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\iterator
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\tuple
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/version.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/base.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv_modules.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cvstd.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\cctype
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\string
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring_insert.h
+d:\some_other_software\opencv\build\include\opencv2\core\cvstd_wrapper.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/neon_utils.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/vsx_utils.hpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\assert.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/check.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/base.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/traits.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/matx.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/saturate.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/fast_math.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/types.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\vector
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/mat.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/bufferpool.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/mat.inl.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/persistence.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/operations.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cvstd.inl.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\complex
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\sstream
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/utility.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\functional
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\mutex
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\chrono
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\ratio
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\thr/xtimec.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\thr/xthrcommon.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\thread
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\thr/xthread
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\thr/xtime
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\thr/xthreads.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/optim.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/ovx.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/calib3d.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/features2d.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv_modules.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/flann/miniflann.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/flann/defines.h
+d:\some_other_software\opencv\build\include\opencv2\flann\config.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/affine.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn/dnn.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/async.hpp
+d:\some_other_software\opencv\build\include\opencv2\dnn\../dnn/version.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn/dict.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\map
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xtree
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn/dnn.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn/layer.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn/dnn.inl.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/dnn/utils/inference_engine.hpp
+d:\some_other_software\opencv\build\include\opencv2\dnn\utils\../dnn.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/flann.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/flann/flann_base.hpp
+d:\some_other_software\opencv\build\include\opencv2\flann\general.h
+d:\some_other_software\opencv\build\include\opencv2\flann\matrix.h
+d:\some_other_software\opencv\build\include\opencv2\flann\params.h
+d:\some_other_software\opencv\build\include\opencv2\flann\any.h
+d:\some_other_software\opencv\build\include\opencv2\flann\saving.h
+d:\some_other_software\opencv\build\include\opencv2\flann\nn_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\result_set.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\set
+d:\some_other_software\opencv\build\include\opencv2\flann\all_indices.h
+d:\some_other_software\opencv\build\include\opencv2\flann\kdtree_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\dynamic_bitset.h
+d:\some_other_software\opencv\build\include\opencv2\flann\dist.h
+d:\some_other_software\opencv\build\include\opencv2\flann\heap.h
+d:\some_other_software\opencv\build\include\opencv2\flann\allocator.h
+d:\some_other_software\opencv\build\include\opencv2\flann\random.h
+d:\some_other_software\opencv\build\include\opencv2\flann\kdtree_single_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\kmeans_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\logger.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\stdarg.h
+d:\some_other_software\opencv\build\include\opencv2\flann\composite_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\linear_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\hierarchical_clustering_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\lsh_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\lsh_table.h
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\iomanip
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xlocmon
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xloctime
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\ctime
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\math.h
+d:\some_other_software\opencv\build\include\opencv2\flann\autotuned_index.h
+d:\some_other_software\opencv\build\include\opencv2\flann\ground_truth.h
+d:\some_other_software\opencv\build\include\opencv2\flann\index_testing.h
+d:\some_other_software\opencv\build\include\opencv2\flann\timer.h
+d:\some_other_software\opencv\build\include\opencv2\flann\sampling.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/highgui.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/imgcodecs.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/videoio.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/imgproc.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/ml.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/ml/ml.inl.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/objdetect.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/objdetect/detection_based_tracker.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/photo.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/warpers.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/warpers.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cuda.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cuda_types.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cuda.inl.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/cuda.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv_modules.hpp
+d:\some_other_software\opencv\build\include\opencv2\stitching\detail\warpers_inl.hpp
+d:\some_other_software\opencv\build\include\opencv2\stitching\detail\warpers.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/matchers.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv_modules.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/motion_estimators.hpp
+d:\some_other_software\opencv\build\include\opencv2\stitching\detail\util.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\list
+d:\some_other_software\opencv\build\include\opencv2\stitching\detail\util_inl.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\queue
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\deque
+d:\some_other_software\opencv\build\include\opencv2\stitching\detail\util.hpp
+d:\some_other_software\opencv\build\include\opencv2\stitching\detail\camera.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/exposure_compensate.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/seam_finders.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/opencv_modules.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/blenders.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/video.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/video/tracking.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/video/background_segm.hpp
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2\imgproc\types_c.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/core_c.h
+D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/core/types_c.h
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\assert.h

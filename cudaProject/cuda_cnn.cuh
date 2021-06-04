@@ -18,12 +18,14 @@
 3. __global__ pool()  池化操作只要单个过程函数即可
 
 4. __global__ FC()  全连接层的矩阵乘法
+
 */
 
 #define TILE_SIZE 32
+#define Kernel_size 3
 
-__global__ void conv_step1(float *step1_out,float * con_core_in,float * feature_in,
-								int featuremap_size,int coresize);
+__global__ void conv_step1(float *step1_out, float * feature_in,
+	float * con_core_in, int featuremap_size, int coresize);
 
 //第二步是做累加，与卷积核无关了
 __global__ void conv_step2(float * feature_out,float * step1_out, 
@@ -32,3 +34,7 @@ __global__ void conv_step2(float * feature_out,float * step1_out,
 __global__ void pool(float *feature_out, float *feature_in, int featuremap_in_size, int poolling_size);
 
 __global__ void FC_SharedMem(float *featuremap_in, float *weight, float *feature_out, int feature_in_size);
+
+__global__ void conv_step1_test();
+
+
