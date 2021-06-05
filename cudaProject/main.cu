@@ -545,7 +545,7 @@ void test_pool() {
 	for (int layer = 0; layer < 3; layer++) {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++){
-				feature_in_cpu[layer * 8 * 8 + i *8  + j] = i+j;
+				feature_in_cpu[layer * 8 * 8 + i *8 + j] = 1.0*(i+j);
 			}
 		}
 	}
@@ -579,6 +579,103 @@ void test_pool() {
 
 	// 将CPU中的数据传到 GPU内存中
 	cudaMemcpy(feature_in_gpu, feature_in_cpu, sizeof(float)*arr_size_3D, cudaMemcpyHostToDevice);
+	cudaError_t result = cudaMemcpy(feature_in_gpu, feature_in_cpu, sizeof(float)*arr_size_3D, cudaMemcpyHostToDevice);
+
+	printf("\n #########内存COPY完成  %d ########## \n",result);
+
+	////////////////////////////////////////////////////////////////////////////////////////////
+	/////////      前期数据准备好  接下来设计线程结构调用kernel函数                     ////////
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//设计传入的线程  启用线程
+	dim3 dimBlock(4, 4);// 线程的形状
+	dim3 dimGrid(3);
+
+	////调用CUDA API时我们应该传入的是device的内存指针！！！
+	////否则直接就调用不了kernel
+	pool<<<dimGrid, dimBlock>>> (out_gpu, feature_in_gpu, 8, 2);
+
+	//将GPU计算好的内存返回给CPU
+	//copy back from gpu
+	cudaMemcpy(pool_out_cpu, out_gpu, sizeof(float)*pool_out_size, cudaMemcpyDeviceToHost);
+
+	//////// 输出featrue_out_cpu 结果 调试用   //////////
+	printf("---------------------------------------\n");
+	printf("-------输出featrue_out_cpu结果-----------\n");
+	printf("---------------------------------------\n");
+	for (int layer = 0; layer < 3; layer++) {
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				printf("%f\t", pool_out_cpu[layer * 4 * 4 + i * 4 + j]);
+			}
+		}
+		printf(" \n             一层的数值        \n");
+	}
+	printf("\n---------------------------------\n");
+	//}
+
+	cudaFree(feature_in_gpu);
+	cudaFree(out_gpu);
+	printf("\n  --------- 释放指针完成 ------ \n");
+
+}
+
+void test_pool_new() {
+	//确定我要开采的feature大小
+	int arr_size_3D = 3 * 8 * 8;   //3层 每层的feature_map为 8*8大小  
+
+	//step2_out大小
+	int pool_out_size = 3 * 4 * 4;
+
+	/*
+	定义数据指针时 我们需要定义两种
+	一个是CPU中的数据指针  一种是传到GPU中的数据指针
+	为方便我们直接都定义一维数组
+	*/
+
+	// 首先是cpu中的 定义数组并赋值
+	float *feature_in_cpu = (float*)malloc(arr_size_3D * sizeof(float));
+	float *pool_out_cpu = (float*)malloc(pool_out_size * sizeof(float));
+
+	////////////////////////////////////////////////////////////////////
+	//-------------------  数据赋值部分 -----------------------
+	//feature赋值
+	for (int layer = 0; layer < 3; layer++) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				feature_in_cpu[layer * 8 * 8 + i * 8 + j] = i + j;
+			}
+		}
+	}
+
+	//-----------------------------数据赋值完成------------------------------
+	//////////////////////////////////////////////////////////////////////////
+
+	////输出featrue结果 调试用
+	printf(" \n featrue_in 初始化 \n ");
+	for (int layer = 0; layer < 3; layer++) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				printf("%f\t", feature_in_cpu[layer * 8 * 8 + i * 8 + j]);
+			}
+			printf("\n");
+		}
+		printf("------------- 第 %d 层 --------------\n", layer);
+	}
+	printf("\n------------------------feature_in 初始化完成--------------------------------\n");
+	printf("\n 初始化一切正常！！！\n");
+	//-------------------------------------------------------------------------------------------------
+
+	//定义GPU的数组指针 define GPU value pointer
+	float *feature_in_gpu, *out_gpu;
+	//他们都是要传到GPUcache中的数据
+
+	//// 在 GPU中 用cudaMalloc开辟内存空间
+	////一定要记得传进去 二级指针
+	cudaMalloc((void**)&feature_in_gpu, sizeof(float)*arr_size_3D);
+	cudaMalloc((void**)&out_gpu, sizeof(float)*pool_out_size);
+
+	// 将CPU中的数据传到 GPU内存中
+	cudaMemcpy(feature_in_gpu, feature_in_cpu, sizeof(float)*arr_size_3D, cudaMemcpyHostToDevice);
 
 	//printf("\n 内存COPY完成 \n");
 
@@ -586,12 +683,12 @@ void test_pool() {
 	/////////      前期数据准备好  接下来设计线程结构调用kernel函数                     ////////
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//设计传入的线程  启用线程
-	dim3 dimBlock(8, 8);// 线程的形状
-	dim3 dimGrid(3);
+	dim3 dimBlock(4, 4);// 线程的形状
+	dim3 dimGrid(1,1,3);
 
 	////调用CUDA API时我们应该传入的是device的内存指针！！！
 	////否则直接就调用不了kernel
-	pool<<<dimGrid, dimBlock>>> (out_gpu, feature_in_gpu, 8, 2);
+	pool_new<<<dimGrid, dimBlock>>> (out_gpu, feature_in_gpu, 8, 2);
 
 	//将GPU计算好的内存返回给CPU
 	//copy back from gpu
@@ -811,5 +908,5 @@ void FullCnnProject() {
 }
 
 int main(void){
-	test_conv_step2_new();
+	test_pool_new();
 }

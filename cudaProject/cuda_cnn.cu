@@ -242,20 +242,74 @@ __global__ void pool(float *feature_out, float *feature_in ,int featuremap_in_si
 	/////////////////////////////////////////////////////////////////////////
 	////   每个线程正式开始计算的算平面小区域内的数的  二维循环求最大   /////
 	////////////////////////////////////////////////////////////////////////
-	float big_value = 0.0f;
+	float big_value = 0.0;
 
 	for (int i = 0; i < poolling_size; i++){
 		for (int j = 0; j < poolling_size; j++)
 		{	
-		if (feature_in[feature_map_start + i * featuremap_in_size + j] >= big_value) {
+		if (feature_in[feature_map_start + i * featuremap_in_size + j] > big_value) {
 			big_value = feature_in[feature_map_start + i * featuremap_in_size + j];
-		}
-		__syncthreads();
+		if (out_layer_now==2){
+			printf(" ");
+			}
+			}
 		} 
+		__syncthreads();
 	}
+	__syncthreads();
 	//把最大值赋值给  out的位置
+
 	feature_out[out_position]= big_value;
 }
+
+__global__ void pool_new(float *feature_out, float *feature_in, int featuremap_in_size, int poolling_size) {
+
+	//定位寻址
+	int out_layer_now = blockIdx.z;
+
+	int threadraws_inablock = blockDim.x;
+	int threadcols_inablock = blockDim.y;
+
+	int blockraws_inagrid = gridDim.x;
+	int blockcols_inagrid = gridDim.y;
+
+	int block_now_raw = blockIdx.x;
+	int block_now_col = blockIdx.y;
+
+	//定位到输出层的一层中的 x和y;
+	int row_now = (block_now_raw* threadraws_inablock)+threadIdx.x;  // 表示所在层的行
+	int col_now = (block_now_col* threadcols_inablock)+threadIdx.y;  // 表示所在层的列
+
+	//输出的feature尺寸
+	int feature_out_size = featuremap_in_size / poolling_size;
+
+	//定位到输出的地方
+	int out_position = out_layer_now * feature_out_size*feature_out_size + row_now * feature_out_size + col_now;
+
+	//定位到开始计算的featuremap地方
+	int feature_map_start = out_layer_now * featuremap_in_size*featuremap_in_size + row_now * poolling_size * featuremap_in_size + col_now * poolling_size;
+
+	//我们用 shared_Mem先装一下需要的数据
+
+	/////////////////////////////////////////////////////////////////////////
+	////   每个线程正式开始计算的算平面小区域内的数的  二维循环求最大   /////
+	////////////////////////////////////////////////////////////////////////
+	float big_value = 0.0f;
+	__syncthreads();
+	for (int i = 0; i < poolling_size; i++) {
+		for (int j = 0; j < poolling_size; j++)
+		{
+			if (feature_in[feature_map_start + i * featuremap_in_size + j] >= big_value) {
+				big_value = feature_in[feature_map_start + i * featuremap_in_size + j];
+			}
+			__syncthreads();
+		}
+		__syncthreads();
+	}
+	//把最大值赋值给  out的位置
+	feature_out[out_position] = big_value;
+}
+
 
 /*
 float *featuremap_in    输入的feature  输入的是一维

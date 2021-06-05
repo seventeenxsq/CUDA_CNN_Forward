@@ -41,4 +41,5 @@ __global__ void conv_step1_new(float *step1_out, float * feature_in,
 __global__ void conv_step2_new(float * feature_out, float * step1_out,
 	int core_num, int core_layers, int step1_out_featuremap_size);
 
+__global__ void pool_new(float *feature_out, float *feature_in, int featuremap_in_size, int poolling_size);
 
