@@ -28,8 +28,11 @@ d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\sm_20_intrinsics
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(1628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(1628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(824): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(1759): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(2621): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -48,9 +51,8 @@ d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\sm_20_intrinsics
 D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(1628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\Program Files\NVDIA_GPU_Compution_Toolkit\CUDA\v10.0\include\device_functions.h(1628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:/asus/Desktop/CUDAProject/cudaProject/cuda_cnn.cu(177): warning : variable "blockraws_inagrid" was declared but never referenced
+D:/asus/Desktop/CUDAProject/cudaProject/cuda_cnn.cu(178): warning : variable "blockcols_inagrid" was declared but never referenced
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(824): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(1759): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -121,9 +123,13 @@ D:\SOME_OTHER_SOFTWARE\opencv\build\include\opencv2/stitching/detail/blenders.hp
 D:/asus/Desktop/CUDAProject/cudaProject/main.cu(79): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
 D:/asus/Desktop/CUDAProject/cudaProject/main.cu(89): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
 D:/asus/Desktop/CUDAProject/cudaProject/main.cu(205): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:/asus/Desktop/CUDAProject/cudaProject/main.cu(320): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:/asus/Desktop/CUDAProject/cudaProject/main.cu(409): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:/asus/Desktop/CUDAProject/cudaProject/main.cu(415): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(215): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(330): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(446): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(548): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(637): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(643): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:/asus/Desktop/CUDAProject/cudaProject/main.cu(755): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(824): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\program files\nvdia_gpu_compution_toolkit\cuda\v10.0\include\crt\math_functions.h(1759): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失

@@ -70,6 +70,8 @@ Latest commit 2d7f221 now
 *.out
 *.app
 
+*.pdb
+*.obj
 
 .vs/
 .vscode/
