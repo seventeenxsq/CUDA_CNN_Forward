@@ -6,6 +6,7 @@
 #include <iostream>
 #include <time.h>
 
+
 /*
 º¯ÊıÉêÃ÷ :
 1. __global__ conv_step1( )
@@ -39,7 +40,7 @@ __global__ void conv_step1_new(float *step1_out, float * feature_in,
 	float * con_core_in, int featuremap_size, int coresize, int layers_in_featuremap);
 
 __global__ void conv_step2_new(float * feature_out, float * step1_out,
-	int core_num, int core_layers, int step1_out_featuremap_size);
+		int core_layers, int step1_out_featuremap_size);
 
 __global__ void pool_new(float *feature_out, float *feature_in, int featuremap_in_size, int poolling_size);
 

@@ -95,7 +95,7 @@ __global__ void conv_step1_new(float *step1_out, float * feature_in,
 										+ layer_now * offset_a_layer
 										+ (block_x * threadraws_inablock+ row_now_inablock)*offset_a_raw
 										+ block_y * threadcols_inablock+col_now_inablock;
-		printf("输出位置%d个数据 \n",out_position);
+		//printf("输出位置%d个数据 \n",out_position);
 
 		// feature中的数据定位，定位到层数即可，最后每次再取
 		int feature_layer_start = layer_now * (featuremap_size*featuremap_size);
@@ -169,7 +169,7 @@ int core_num     卷积核个数   对应输出的featuremap的层数
 int core_layers  卷积核层数   对应于每次累加我要跳多少个间隔来计算总的累加。
 */
 __global__ void conv_step2_new(float * feature_out, float * step1_out,
-	int core_num, int core_layers, int step1_out_featuremap_size) {
+	 int core_layers, int step1_out_featuremap_size) {
 	
 	int threadraws_inablock = blockDim.x;
 	int threadcols_inablock = blockDim.y;
@@ -209,16 +209,8 @@ __global__ void conv_step2_new(float * feature_out, float * step1_out,
 	feature_out[out_pos] = temp;
 }
 
-
 //第一步和第二步合起来是一次完整的	卷积操作
 
-//第三步做池化运算其实就是比大小
-/*
-float * feature_out      输出的feature_out指针
-float * feature_in		 输入的feature_in指针  feature_out是feature_in的 1/n 倍，n的大小由池化核的大小决定
-int featuremap_in_size   输入的featuremap的尺寸   输出的尺寸由输入的尺寸/倍数来得到  
-int poolling_size		 池化核的大小
-*/
 __global__ void pool(float *feature_out, float *feature_in ,int featuremap_in_size,int poolling_size) {
 	
 	//定位寻址
@@ -262,6 +254,13 @@ __global__ void pool(float *feature_out, float *feature_in ,int featuremap_in_si
 	feature_out[out_position]= big_value;
 }
 
+//第三步做池化运算其实就是比大小
+/*
+float * feature_out      输出的feature_out指针
+float * feature_in		 输入的feature_in指针  feature_out是feature_in的 1/n 倍，n的大小由池化核的大小决定
+int featuremap_in_size   输入的featuremap的尺寸   输出的尺寸由输入的尺寸/倍数来得到
+int poolling_size		 池化核的大小
+*/
 __global__ void pool_new(float *feature_out, float *feature_in, int featuremap_in_size, int poolling_size) {
 
 	//定位寻址
@@ -309,7 +308,6 @@ __global__ void pool_new(float *feature_out, float *feature_in, int featuremap_i
 	//把最大值赋值给  out的位置
 	feature_out[out_position] = big_value;
 }
-
 
 /*
 float *featuremap_in    输入的feature  输入的是一维
@@ -376,6 +374,7 @@ __global__ void FC_SharedMem(float *featuremap_in, float *weight, float *feature
 		}
 		__syncthreads();
 	}
+	printf("\n  result=%f 第%d个线程", result, out_pos);
 	//最后再将球的数据传入out的数组中
 	feature_out[out_pos] = result;
 }
