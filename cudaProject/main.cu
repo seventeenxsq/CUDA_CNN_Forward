@@ -794,7 +794,7 @@ void test_FC_SharedMem() {
 void FullCnnProject() {
 
 	//opencv读取图片 512*512
-	Mat raw_img = imread("Lena.jpg");
+	Mat raw_img = imread("D:\\asus\\Desktop\\cudaProject\\cudaProject\\Lena.jpg");
 	Mat grey_img,small_img;
 	printf("图片大小为 %d行  %d列  %d通道 \n ", raw_img.rows, raw_img.cols, raw_img.channels());
 	cout << "像素类型为："<< raw_img.type() << endl;
@@ -1019,7 +1019,7 @@ void FullCnnProject() {
 	for (int raw = 0; raw < 10; raw++) {
 		for (int i = 0; i < 8 * 8 * 10; i++)
 		{
-			weight_in_cpu[raw * 8 * 8 * 10 + i] = raw *0.1;
+			weight_in_cpu[raw * 8 * 8 * 10 + i] = raw *0.1+1;
 		}
 	}
 
@@ -1043,11 +1043,23 @@ void FullCnnProject() {
 	//结果拷贝回cpu
 	cudaMemcpy(fc_out_cpu, fc_out_gpu, sizeof(float)*fc_out_size, cudaMemcpyDeviceToHost);
 
+	int best_index=-1;
+	float temp = 0.0;
 	for (int i = 0; i < fc_out_size; i++)
 	{
-		printf("%f \t", fc_out_cpu[i]);
+		printf("预测第 %d 个类别的 得分是 %f \n", i, fc_out_cpu[i]);
+		if (fc_out_cpu[i] > temp) {
+			temp = fc_out_cpu[i];
+			best_index = i;
+		}
 	}
-	printf("\n得到最后的结果!!!!\n");
+	printf("\n最后预测的是第%d类!!!!\n", best_index);
+
+
+	cudaFree(weight_in_gpu);
+	cudaFree(fc_out_gpu);
+	free(weight_in_cpu);
+	free(fc_out_cpu);
 
 }
 

@@ -374,7 +374,7 @@ __global__ void FC_SharedMem(float *featuremap_in, float *weight, float *feature
 		}
 		__syncthreads();
 	}
-	printf("\n  result=%f 第%d个线程", result, out_pos);
+	//printf("\n  result=%f 第%d个线程", result, out_pos);
 	//最后再将球的数据传入out的数组中
 	feature_out[out_pos] = result;
 }

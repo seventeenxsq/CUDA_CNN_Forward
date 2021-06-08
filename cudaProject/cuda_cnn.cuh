@@ -21,7 +21,6 @@
 4. __global__ FC()  全连接层的矩阵乘法
 
 */
-
 #define TILE_SIZE 32
 #define Kernel_size 3
 
